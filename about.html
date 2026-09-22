@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Aditya Shrestha</title>
+  <meta name="description" content="Academic background, engineering discipline, and contact info for Aditya Shrestha.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%23131f33'/%3E%3Ctext x='50' y='68' font-size='56' font-family='Georgia,serif' font-weight='bold' fill='%23ffffff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f1e6;
+      --bg-subtle: #eae4d4;
+      --text: #131f33;
+      --text-muted: #5c6570;
+      --text-light: #636c74;
+      --border: #dfe2dc;
+      --accent: #8c531b;
+      --accent-soft: #f2e7d9;
+      --maxw: 920px;
+      --radius: 6px;
+      --serif: "Fraunces", Georgia, serif;
+      --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+      text-align: justify;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    [id] { scroll-margin-top: 78px; }
+
+    /* Header */
+    .site-header {
+      background: rgba(245, 241, 230, .96);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; height: 64px; }
+    .brand { font-family: var(--serif); font-size: 1.08rem; font-weight: 600; color: var(--text); }
+    .brand:hover { text-decoration: none; }
+    .nav-links { display: flex; gap: 18px; }
+    .nav-links a { color: var(--text-muted); font-size: 0.86rem; font-weight: 500; padding: 7px 0; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); text-decoration: none; }
+    .nav-links a.active { font-weight: 600; border-bottom: 2px solid var(--accent); }
+
+    /* Sections */
+    .section { padding: 48px 0; border-bottom: 1px solid var(--border); }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(1.3rem, 2vw, 1.65rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    /* Sub-page header ("Research", "Projects", ...) */
+    .page-head { padding: 48px 0 22px; border-bottom: 1px solid var(--border); }
+    .page-head h1 {
+      font-family: var(--serif);
+      font-size: clamp(1.9rem, 4vw, 2.3rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .page-head p { color: var(--text-muted); font-size: 0.96rem; max-width: 65ch; line-height: 1.6; }
+
+    /* Footer */
+    .site-footer { padding: 32px 0 36px; font-size: 0.85rem; color: var(--text-light); }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; }
+
+    @media (max-width: 800px) {
+      .header-inner { flex-wrap: wrap; align-items: flex-start; row-gap: 6px; height: auto; min-height: 56px; padding: 10px 0; }
+      .nav-links { flex-wrap: wrap; gap: 12px; width: 100%; }
+    }
+    @media (max-width: 600px) {
+      .container { padding-left: 18px; padding-right: 18px; }
+      .section { padding: 36px 0; }
+      .page-head { padding: 36px 0 18px; }
+      .page-head h1 { font-size: 1.9rem; }
+      .nav-links { gap: 13px; }
+      .nav-links a { font-size: 0.8rem; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+    .bio-body p { margin-bottom: 14px; font-size: 0.96rem; color: var(--text); max-width: 65ch; line-height: 1.7; }
+    .bio-body p:last-child { margin-bottom: 0; }
+
+    .info-list { display: flex; flex-direction: column; }
+    .info-item { border-top: 1px solid var(--border); padding: 20px 0; display: flex; flex-direction: column; gap: 4px; }
+    .info-item-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 600; color: var(--text); }
+    .info-item-meta { font-size: 0.88rem; color: var(--text-light); }
+    .info-item-desc { font-size: 0.92rem; color: var(--text-muted); max-width: 65ch; line-height: 1.7; }
+
+    .contact-note { font-size: 0.94rem; color: var(--text-muted); margin-bottom: 12px; }
+    .contact-list { list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 0.92rem; }
+    .contact-list strong { font-weight: 600; }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand">Aditya Shrestha</a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="projects.html">Projects</a>
+      <a href="publications.html">Publications</a>
+      <a href="about.html" class="active">About</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <div class="page-head">
+    <h1>About Me</h1>
+    <p>Background, research philosophy, and engineering workflow.</p>
+  </div>
+
+  <section class="section">
+    <h2 class="section-title">Background &amp; Focus</h2>
+    <div class="bio-body">
+      <p>
+        I am a final-year Computer Engineering undergraduate at Kathmandu University in Dhulikhel, Nepal. My research focus centers on self-supervised representation learning for sensing and temporal series, environmental early-warning systems, and low-latency machine learning streaming systems.
+      </p>
+      <p>
+        I prioritize methodology and negative-result integrity in student research. For example, my work on glacial lake outburst flood detection implements a pre-registered falsification protocol with transparent reporting of both success margins and failure envelopes.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Education</h2>
+    <div class="info-list">
+      <div class="info-item">
+        <div class="info-item-title">B.E. in Computer Engineering</div>
+        <div class="info-item-meta">Kathmandu University &middot; Expected 2026</div>
+        <div class="info-item-desc">Relevant Coursework: Digital Signal Processing, Deep Learning &amp; Neural Networks, Distributed Systems, Software Engineering.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Honors &amp; Competitions</h2>
+    <div class="info-list">
+      <div class="info-item">
+        <div class="info-item-title">1st Place &mdash; Global IME AI/ML Hackathon 2026</div>
+        <div class="info-item-desc">
+          Developed BankSentinel, a five-agent AI intrusion detection system with live presentation before banking sector executives.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Contact &amp; Documents</h2>
+    <p class="contact-note">
+      Feel free to reach out for research discussions, engineering collaborations, or software opportunities.
+    </p>
+    <ul class="contact-list">
+      <li><strong>Email:</strong> <a href="mailto:adityashrestha39@gmail.com">adityashrestha39@gmail.com</a></li>
+      <li><strong>GitHub:</strong> <a href="https://github.com/AdiShrestha" target="_blank" rel="noopener">github.com/AdiShrestha</a></li>
+      <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/adityashrestha39/" target="_blank" rel="noopener">linkedin.com/in/adityashrestha39</a></li>
+      <li><strong>CV:</strong> <a href="AdityaShrestha.pdf">Download PDF</a></li>
+    </ul>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>&copy; 2026 Aditya Shrestha</span>
+    <span>Kathmandu University</span>
+  </div>
+</footer>
+
+</body>
+</html>

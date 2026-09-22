@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aditya Shrestha — Kathmandu University</title>
+  <meta name="description" content="Personal academic and engineering page of Aditya Shrestha, Computer Engineering student at Kathmandu University researching self-supervised learning and real-time ML systems.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%23131f33'/%3E%3Ctext x='50' y='68' font-size='56' font-family='Georgia,serif' font-weight='bold' fill='%23ffffff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f1e6;
+      --bg-subtle: #eae4d4;
+      --text: #131f33;
+      --text-muted: #5c6570;
+      --text-light: #636c74;
+      --border: #dfe2dc;
+      --accent: #8c531b;
+      --accent-soft: #f2e7d9;
+      --maxw: 920px;
+      --radius: 6px;
+      --serif: "Fraunces", Georgia, serif;
+      --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+      text-align: justify;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    [id] { scroll-margin-top: 78px; }
+
+    /* Header */
+    .site-header {
+      background: rgba(245, 241, 230, .96);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; height: 64px; }
+    .brand { font-family: var(--serif); font-size: 1.08rem; font-weight: 600; color: var(--text); }
+    .brand:hover { text-decoration: none; }
+    .nav-links { display: flex; gap: 18px; }
+    .nav-links a { color: var(--text-muted); font-size: 0.86rem; font-weight: 500; padding: 7px 0; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); text-decoration: none; }
+    .nav-links a.active { font-weight: 600; border-bottom: 2px solid var(--accent); }
+
+    /* Sections */
+    .section { padding: 48px 0; border-bottom: 1px solid var(--border); }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(1.3rem, 2vw, 1.65rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    /* Sub-page header ("Research", "Projects", ...) */
+    .page-head { padding: 48px 0 22px; border-bottom: 1px solid var(--border); }
+    .page-head h1 {
+      font-family: var(--serif);
+      font-size: clamp(1.9rem, 4vw, 2.3rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .page-head p { color: var(--text-muted); font-size: 0.96rem; max-width: 65ch; line-height: 1.6; }
+
+    /* Footer */
+    .site-footer { padding: 32px 0 36px; font-size: 0.85rem; color: var(--text-light); }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; }
+
+    @media (max-width: 800px) {
+      .header-inner { flex-wrap: wrap; align-items: flex-start; row-gap: 6px; height: auto; min-height: 56px; padding: 10px 0; }
+      .nav-links { flex-wrap: wrap; gap: 12px; width: 100%; }
+    }
+    @media (max-width: 600px) {
+      .container { padding-left: 18px; padding-right: 18px; }
+      .section { padding: 36px 0; }
+      .page-head { padding: 36px 0 18px; }
+      .page-head h1 { font-size: 1.9rem; }
+      .nav-links { gap: 13px; }
+      .nav-links a { font-size: 0.8rem; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+    /* Hero */
+    .hero { padding: 56px 0 44px; border-bottom: 1px solid var(--border); }
+    .hero-layout { display: grid; grid-template-columns: 140px 1fr; gap: 36px; align-items: start; }
+    .hero-sidebar { width: auto; }
+    .avatar {
+      width: 140px; height: 140px;
+      border-radius: var(--radius);
+      object-fit: cover;
+      background: var(--bg-subtle);
+      display: block;
+      margin-bottom: 14px;
+    }
+    .contact-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .contact-links a { display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); font-size: 0.82rem; line-height: 1.2; }
+    .contact-links a:hover { color: var(--accent); text-decoration: none; }
+    .contact-icon { width: 15px; height: 15px; flex: 0 0 15px; display: block; }
+
+    .hero-bio h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.1rem, 4vw, 2.55rem);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      margin-bottom: 7px;
+    }
+    .affiliation { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 16px; }
+    .hero-bio p { color: var(--text); margin-bottom: 12px; font-size: 0.96rem; max-width: 65ch; }
+
+    /* Selected Research / Projects lists */
+    .entry-list { display: flex; flex-direction: column; }
+    .entry-item { border-top: 1px solid var(--border); padding: 20px 0; display: flex; flex-direction: column; gap: 4px; }
+    .entry-title { font-family: var(--serif); font-size: 1.08rem; font-weight: 600; color: var(--text); }
+    .entry-meta { font-size: 0.88rem; color: var(--text-light); }
+    .entry-desc { font-size: 0.92rem; color: var(--text-muted); max-width: 65ch; }
+    .entry-links { display: flex; gap: 10px; font-size: 0.85rem; font-family: var(--mono); }
+
+    @media (max-width: 680px) {
+      .hero-layout { grid-template-columns: 1fr; gap: 20px; }
+      .hero-sidebar { display: flex; align-items: center; gap: 18px; }
+      .avatar { width: 84px; height: 84px; margin-bottom: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand">Aditya Shrestha</a>
+    <nav class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="research.html">Research</a>
+      <a href="projects.html">Projects</a>
+      <a href="publications.html">Publications</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <div class="hero-layout">
+      <div class="hero-sidebar">
+        <img src="profile_logo.jpeg" alt="Aditya Shrestha" class="avatar">
+        <ul class="contact-links">
+          <li><a href="mailto:adityashrestha39@gmail.com" aria-label="Email Aditya Shrestha"><svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg><span>Email</span></a></li>
+          <li><a href="https://github.com/AdiShrestha" target="_blank" rel="noopener" aria-label="GitHub profile"><svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .7a11.3 11.3 0 0 0-3.57 22.02c.56.1.77-.24.77-.54v-2.1c-3.14.68-3.8-1.33-3.8-1.33-.51-1.3-1.25-1.64-1.25-1.64-1.02-.7.08-.68.08-.68 1.13.08 1.73 1.16 1.73 1.16 1 .1 1.56-.99 1.56-.99.9-1.55 2.34-1.1 2.91-.84.09-.68.35-1.1.64-1.36-2.51-.29-5.15-1.25-5.15-5.57 0-1.23.44-2.24 1.16-3.03-.12-.29-.5-1.44.11-3 0 0 .95-.3 3.11 1.15a10.8 10.8 0 0 1 5.66 0c2.16-1.46 3.1-1.15 3.1-1.15.62 1.56.23 2.71.12 3 .72.79 1.15 1.8 1.15 3.03 0 4.33-2.64 5.28-5.16 5.56.36.31.68.92.68 1.86v2.76c0 .3.2.65.78.54A11.3 11.3 0 0 0 12 .7Z"></path></svg><span>GitHub</span></a></li>
+          <li><a href="https://www.linkedin.com/in/adityashrestha39/" target="_blank" rel="noopener" aria-label="LinkedIn profile"><svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M5.2 3.5A1.85 1.85 0 1 1 5.2 7.2a1.85 1.85 0 0 1 0-3.7ZM3.6 8.8h3.2V20.5H3.6V8.8Zm5.2 0h3.1v1.6h.04c.43-.82 1.48-1.99 3.05-1.99 3.26 0 3.86 2.15 3.86 4.95v7.14h-3.2v-6.33c0-1.51-.03-3.45-2.1-3.45-2.1 0-2.42 1.64-2.42 3.34v6.44H8.8V8.8Z"></path></svg><span>LinkedIn</span></a></li>
+          <li><a href="AdityaShrestha.pdf" aria-label="Download CV"><svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v10"></path><path d="m8 19 4 4 4-4"></path><path d="M4 14v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"></path></svg><span>Download CV</span></a></li>
+        </ul>
+      </div>
+
+      <div class="hero-bio">
+        <h1>Aditya Shrestha</h1>
+        <div class="affiliation">B.E. in Computer Engineering &middot; Kathmandu University, Nepal</div>
+        <p>
+          I am an undergraduate researcher focusing on self-supervised representation learning for real-world time-series and sensor data. My primary interests include environmental early-warning systems, real-time ML pipeline infrastructure, and topological anomaly detection in transaction networks.
+        </p>
+        <p>
+          My work is built around pre-registered falsification protocols, transparent reporting of negative results, and lightweight, reproducible software engineering.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Selected Research</h2>
+    <div class="entry-list">
+      <div class="entry-item">
+        <div class="entry-title">Self-Supervised Flood Precursor Detection on USGS Streamgage Records</div>
+        <div class="entry-meta">Complete Draft &middot; Unsubmitted</div>
+        <div class="entry-desc">
+          A temporal encoder trained on public streamgage records to identify precursor signals of flooding prior to threshold exceedance.
+        </div>
+        <div class="entry-links">
+          <a href="projects.html#flood-sentinel">[Project Details]</a>
+          <a href="publications.html">[Abstract]</a>
+        </div>
+      </div>
+
+      <div class="entry-item">
+        <div class="entry-title">Backpressure-Driven Elastic Feature Windows for Real-Time ML Pipelines</div>
+        <div class="entry-meta">Complete Draft &middot; Unsubmitted</div>
+        <div class="entry-desc">
+          An adaptive feature-windowing runtime designed to bound per-batch latency under variable ingestion load, evaluated against baseline streaming pipelines under a fixed test protocol.
+        </div>
+        <div class="entry-links">
+          <a href="projects.html#bpfeat">[Project Details]</a>
+          <a href="publications.html">[Abstract]</a>
+        </div>
+      </div>
+
+      <div class="entry-item">
+        <div class="entry-title">Self-Supervised Anomaly Detection for Glacial Lake Outburst Flood Precursors via Satellite Time Series</div>
+        <div class="entry-meta">Complete Draft &middot; Unsubmitted</div>
+        <div class="entry-desc">
+          A time-series masked autoencoder pipeline evaluated under a pre-registered falsification protocol, including documented negative findings on the South Lhonak retrospective evaluation.
+        </div>
+        <div class="entry-links">
+          <a href="projects.html#sentinel-gl">[Project Details]</a>
+          <a href="publications.html">[Abstract]</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Featured Engineering Projects</h2>
+    <div class="entry-list">
+      <div class="entry-item">
+        <div class="entry-title">BankSentinel</div>
+        <div class="entry-meta">1st Place &mdash; Global IME AI/ML Hackathon 2026</div>
+        <div class="entry-desc">
+          A five-agent AI architecture for real-time intrusion detection and behavioral transaction inspection.
+        </div>
+        <div class="entry-links">
+          <a href="projects.html#banksentinel">[Overview]</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>&copy; 2026 Aditya Shrestha</span>
+    <span>Kathmandu University</span>
+  </div>
+</footer>
+
+</body>
+</html>

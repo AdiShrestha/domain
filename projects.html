@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Aditya Shrestha</title>
+  <meta name="description" content="Research and engineering projects by Aditya Shrestha.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%23131f33'/%3E%3Ctext x='50' y='68' font-size='56' font-family='Georgia,serif' font-weight='bold' fill='%23ffffff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f1e6;
+      --bg-subtle: #eae4d4;
+      --text: #131f33;
+      --text-muted: #5c6570;
+      --text-light: #636c74;
+      --border: #dfe2dc;
+      --accent: #8c531b;
+      --accent-soft: #f2e7d9;
+      --maxw: 920px;
+      --radius: 6px;
+      --serif: "Fraunces", Georgia, serif;
+      --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+      text-align: justify;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    [id] { scroll-margin-top: 78px; }
+
+    /* Header */
+    .site-header {
+      background: rgba(245, 241, 230, .96);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; height: 64px; }
+    .brand { font-family: var(--serif); font-size: 1.08rem; font-weight: 600; color: var(--text); }
+    .brand:hover { text-decoration: none; }
+    .nav-links { display: flex; gap: 18px; }
+    .nav-links a { color: var(--text-muted); font-size: 0.86rem; font-weight: 500; padding: 7px 0; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); text-decoration: none; }
+    .nav-links a.active { font-weight: 600; border-bottom: 2px solid var(--accent); }
+
+    /* Sections */
+    .section { padding: 48px 0; border-bottom: 1px solid var(--border); }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(1.3rem, 2vw, 1.65rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    /* Sub-page header ("Research", "Projects", ...) */
+    .page-head { padding: 48px 0 22px; border-bottom: 1px solid var(--border); }
+    .page-head h1 {
+      font-family: var(--serif);
+      font-size: clamp(1.9rem, 4vw, 2.3rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .page-head p { color: var(--text-muted); font-size: 0.96rem; max-width: 65ch; line-height: 1.6; }
+
+    /* Footer */
+    .site-footer { padding: 32px 0 36px; font-size: 0.85rem; color: var(--text-light); }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; }
+
+    @media (max-width: 800px) {
+      .header-inner { flex-wrap: wrap; align-items: flex-start; row-gap: 6px; height: auto; min-height: 56px; padding: 10px 0; }
+      .nav-links { flex-wrap: wrap; gap: 12px; width: 100%; }
+    }
+    @media (max-width: 600px) {
+      .container { padding-left: 18px; padding-right: 18px; }
+      .section { padding: 36px 0; }
+      .page-head { padding: 36px 0 18px; }
+      .page-head h1 { font-size: 1.9rem; }
+      .nav-links { gap: 13px; }
+      .nav-links a { font-size: 0.8rem; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+    .project-entry { border-top: 1px solid var(--border); padding: 20px 0; display: flex; flex-direction: column; gap: 4px; }
+    .project-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px; }
+    .project-name { font-family: var(--serif); font-size: 1.08rem; font-weight: 600; color: var(--text); }
+    .project-badge { font-size: 0.8rem; font-family: var(--mono); color: var(--text-light); }
+    .project-desc { font-size: 0.92rem; color: var(--text-muted); max-width: 65ch; line-height: 1.7; }
+    .project-tags { display: flex; gap: 6px; margin-top: 2px; flex-wrap: wrap; }
+    .tag {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      padding: 4px 9px;
+      border-radius: 4px;
+      font-family: var(--mono);
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand">Aditya Shrestha</a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="publications.html">Publications</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <div class="page-head">
+    <h1>Projects</h1>
+    <p>Systems, algorithms, and applied machine learning implementations.</p>
+  </div>
+
+  <section class="section">
+    <h2 class="section-title">Research Projects</h2>
+
+
+    <div class="project-entry" id="flood-sentinel">
+      <div class="project-header">
+        <span class="project-name">flood-sentinel</span>
+        <span class="project-badge">Complete Draft &middot; Unsubmitted</span>
+      </div>
+      <p class="project-desc">
+        Self-supervised temporal encoder trained on historical USGS streamgage data to detect precursor dynamics in environmental streamflows.
+      </p>
+      <div class="project-tags">
+        <span class="tag">PyTorch</span>
+        <span class="tag">Self-Supervised Learning</span>
+        <span class="tag">Time-Series</span>
+      </div>
+    </div>
+
+    <div class="project-entry" id="bpfeat">
+      <div class="project-header">
+        <span class="project-name">BPFeat</span>
+        <span class="project-badge">Complete Draft &middot; Unsubmitted</span>
+      </div>
+      <p class="project-desc">
+        Backpressure-driven elastic feature windows for real-time ML streaming pipelines, designed to bound per-batch latency under variable ingestion load and evaluated against baseline streaming pipelines under a fixed test protocol.
+      </p>
+      <div class="project-tags">
+        <span class="tag">Streaming ML</span>
+        <span class="tag">Backpressure Systems</span>
+        <span class="tag">Latency Optimization</span>
+      </div>
+    </div>
+
+    <div class="project-entry" id="sentinel-gl">
+      <div class="project-header">
+        <span class="project-name">sentinel-gl</span>
+        <span class="project-badge">Complete Draft &middot; Unsubmitted</span>
+      </div>
+      <p class="project-desc">
+        Self-supervised masked autoencoder for detecting glacial lake outburst flood precursors from multispectral satellite time series, featuring a pre-registered falsification protocol and documented negative test bounds.
+      </p>
+      <div class="project-tags">
+        <span class="tag">Remote Sensing</span>
+        <span class="tag">TS-MAE</span>
+        <span class="tag">Falsification Protocol</span>
+      </div>
+    </div>
+
+    <div class="project-entry" id="tdl-collusion">
+      <div class="project-header">
+        <span class="project-name">Topological Collusion Detection</span>
+        <span class="project-badge">Collaborative Research</span>
+      </div>
+      <p class="project-desc">
+        Applying topological deep learning and persistent homology computation to uncover collusion rings in financial transaction graphs across the Elliptic++ and IBM AMLworld benchmarks.
+      </p>
+      <div class="project-tags">
+        <span class="tag">Topological Data Analysis</span>
+        <span class="tag">Graph Mining</span>
+        <span class="tag">AML</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Engineering Systems</h2>
+
+
+    <div class="project-entry" id="banksentinel">
+      <div class="project-header">
+        <span class="project-name">BankSentinel</span>
+        <span class="project-badge">1st Place &middot; Global IME AI/ML Hackathon 2026</span>
+      </div>
+      <p class="project-desc">
+        A five-agent intrusion detection and behavioral transaction analysis system built with Team Eigen Threat and evaluated live before financial sector leadership.
+      </p>
+      <div class="project-tags">
+        <span class="tag">Multi-Agent Systems</span>
+        <span class="tag">Security</span>
+        <span class="tag">Real-Time Inspection</span>
+      </div>
+    </div>
+
+    <div class="project-entry" id="klstream">
+      <div class="project-header">
+        <span class="project-name">KLStream</span>
+        <span class="project-badge">C++17 &middot; Systems Project</span>
+      </div>
+      <p class="project-desc">
+        Stream-processing runtime utilizing adaptive windowing for anomaly detection, featuring PID controller variants, LOBSTER ticker evaluation, and nanosecond timestamp accuracy.
+      </p>
+      <div class="project-tags">
+        <span class="tag">C++17</span>
+        <span class="tag">Low-Latency Systems</span>
+        <span class="tag">Stream Processing</span>
+      </div>
+    </div>
+
+    <div class="project-entry" id="clickstream">
+      <div class="project-header">
+        <span class="project-name">ClickStream</span>
+        <span class="project-badge">Continuous Biometrics</span>
+      </div>
+      <p class="project-desc">
+        Continuous behavioral authentication system leveraging keystroke and mouse dynamics evaluated over a consented participant dataset.
+      </p>
+      <div class="project-tags">
+        <span class="tag">Biometrics</span>
+        <span class="tag">Behavioral Analytics</span>
+        <span class="tag">Authentication</span>
+      </div>
+    </div>
+
+    <div class="project-entry" id="coremesh">
+      <div class="project-header">
+        <span class="project-name">CoreMesh</span>
+        <span class="project-badge">Distributed Systems</span>
+      </div>
+      <p class="project-desc">
+        Distributed communication framework for resilient peer-to-peer data coordination under intermittent network conditions.
+      </p>
+      <div class="project-tags">
+        <span class="tag">Networking</span>
+        <span class="tag">Distributed Systems</span>
+        <span class="tag">C++</span>
+      </div>
+    </div>
+
+    <div class="project-entry" id="load-adaptive-iir">
+      <div class="project-header">
+        <span class="project-name">Load-Adaptive IIR Filtering</span>
+        <span class="project-badge">Digital Signal Processing</span>
+      </div>
+      <p class="project-desc">
+        Adaptive IIR filter design applying discrete Fourier transform and spectral decomposition algorithms to dynamic filtering challenges.
+      </p>
+      <div class="project-tags">
+        <span class="tag">DSP</span>
+        <span class="tag">IIR Filters</span>
+        <span class="tag">Spectral Analysis</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>&copy; 2026 Aditya Shrestha</span>
+    <span>Kathmandu University</span>
+  </div>
+</footer>
+
+</body>
+</html>
