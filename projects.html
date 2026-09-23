@@ -14,13 +14,13 @@
       --bg: #f5f1e6;
       --bg-subtle: #eae4d4;
       --text: #131f33;
-      --text-muted: #5c6570;
-      --text-light: #636c74;
+      --text-muted: #4d5560;
+      --text-light: #5a636d;
       --border: #dfe2dc;
       --accent: #8c531b;
       --accent-soft: #f2e7d9;
-      --maxw: 920px;
-      --radius: 6px;
+      --maxw: 940px;
+      --radius: 8px;
       --serif: "Fraunces", Georgia, serif;
       --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
@@ -32,12 +32,13 @@
       font-family: var(--sans);
       color: var(--text);
       background: var(--bg);
-      line-height: 1.65;
-      text-align: justify;
+      font-size: 1rem;
+      line-height: 1.75;
+      text-align: left;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
-    .container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
     :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
@@ -52,69 +53,69 @@
       top: 0;
       z-index: 100;
     }
-    .header-inner { display: flex; justify-content: space-between; align-items: center; height: 64px; }
-    .brand { font-family: var(--serif); font-size: 1.08rem; font-weight: 600; color: var(--text); }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; height: 68px; }
+    .brand { font-family: var(--serif); font-size: 1.15rem; font-weight: 600; color: var(--text); }
     .brand:hover { text-decoration: none; }
-    .nav-links { display: flex; gap: 18px; }
-    .nav-links a { color: var(--text-muted); font-size: 0.86rem; font-weight: 500; padding: 7px 0; }
+    .nav-links { display: flex; gap: 22px; }
+    .nav-links a { color: var(--text-muted); font-size: 0.92rem; font-weight: 500; padding: 7px 0; transition: color 0.2s ease; }
     .nav-links a:hover, .nav-links a.active { color: var(--text); text-decoration: none; }
     .nav-links a.active { font-weight: 600; border-bottom: 2px solid var(--accent); }
 
     /* Sections */
-    .section { padding: 48px 0; border-bottom: 1px solid var(--border); }
+    .section { padding: 52px 0; border-bottom: 1px solid var(--border); }
     .section-title {
       font-family: var(--serif);
-      font-size: clamp(1.3rem, 2vw, 1.65rem);
+      font-size: clamp(1.4rem, 2.5vw, 1.8rem);
       font-weight: 600;
       letter-spacing: -0.02em;
       color: var(--text);
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
     /* Sub-page header ("Research", "Projects", ...) */
-    .page-head { padding: 48px 0 22px; border-bottom: 1px solid var(--border); }
+    .page-head { padding: 52px 0 26px; border-bottom: 1px solid var(--border); }
     .page-head h1 {
       font-family: var(--serif);
-      font-size: clamp(1.9rem, 4vw, 2.3rem);
+      font-size: clamp(2rem, 4vw, 2.5rem);
       font-weight: 600;
       letter-spacing: -0.02em;
       color: var(--text);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
-    .page-head p { color: var(--text-muted); font-size: 0.96rem; max-width: 65ch; line-height: 1.6; }
+    .page-head p { color: var(--text-muted); font-size: 1.02rem; max-width: 65ch; line-height: 1.65; }
 
     /* Footer */
-    .site-footer { padding: 32px 0 36px; font-size: 0.85rem; color: var(--text-light); }
+    .site-footer { padding: 36px 0 40px; font-size: 0.88rem; color: var(--text-light); }
     .footer-inner { display: flex; justify-content: space-between; align-items: center; }
 
     @media (max-width: 800px) {
       .header-inner { flex-wrap: wrap; align-items: flex-start; row-gap: 6px; height: auto; min-height: 56px; padding: 10px 0; }
-      .nav-links { flex-wrap: wrap; gap: 12px; width: 100%; }
+      .nav-links { flex-wrap: wrap; gap: 14px; width: 100%; }
     }
     @media (max-width: 600px) {
-      .container { padding-left: 18px; padding-right: 18px; }
-      .section { padding: 36px 0; }
-      .page-head { padding: 36px 0 18px; }
-      .page-head h1 { font-size: 1.9rem; }
-      .nav-links { gap: 13px; }
-      .nav-links a { font-size: 0.8rem; }
+      .container { padding-left: 20px; padding-right: 20px; }
+      .section { padding: 40px 0; }
+      .page-head { padding: 40px 0 20px; }
+      .page-head h1 { font-size: 2rem; }
+      .nav-links { gap: 14px; }
+      .nav-links a { font-size: 0.85rem; }
       .footer-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
     }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
-    .project-entry { border-top: 1px solid var(--border); padding: 20px 0; display: flex; flex-direction: column; gap: 4px; }
-    .project-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px; }
-    .project-name { font-family: var(--serif); font-size: 1.08rem; font-weight: 600; color: var(--text); }
-    .project-badge { font-size: 0.8rem; font-family: var(--mono); color: var(--text-light); }
-    .project-desc { font-size: 0.92rem; color: var(--text-muted); max-width: 65ch; line-height: 1.7; }
-    .project-tags { display: flex; gap: 6px; margin-top: 2px; flex-wrap: wrap; }
+    .project-entry { border-top: 1px solid var(--border); padding: 22px 0; display: flex; flex-direction: column; gap: 5px; }
+    .project-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
+    .project-name { font-family: var(--serif); font-size: 1.12rem; font-weight: 600; color: var(--text); }
+    .project-badge { font-size: 0.84rem; font-family: var(--mono); color: var(--text-light); }
+    .project-desc { font-size: 0.95rem; color: var(--text-muted); max-width: 65ch; line-height: 1.8; }
+    .project-tags { display: flex; gap: 8px; margin-top: 4px; flex-wrap: wrap; }
     .tag {
       background: var(--bg-subtle);
       border: 1px solid var(--border);
       color: var(--text-muted);
-      font-size: 0.78rem;
-      padding: 4px 9px;
-      border-radius: 4px;
+      font-size: 0.82rem;
+      padding: 5px 11px;
+      border-radius: 5px;
       font-family: var(--mono);
     }
   </style>
