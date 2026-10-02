@@ -403,12 +403,12 @@
       border-radius: var(--radius);
       cursor: pointer;
       flex-shrink: 0;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
       transition: box-shadow 0.25s ease, transform 0.25s ease;
     }
 
     .hackathon-photo-thumb:hover {
-      box-shadow: 0 6px 24px rgba(0,0,0,0.14);
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.14);
       transform: translateY(-2px);
     }
 
@@ -416,6 +416,7 @@
       .entry-highlight-layout {
         flex-direction: column;
       }
+
       .hackathon-photo-thumb {
         width: 100%;
         height: auto;
@@ -428,7 +429,7 @@
       position: fixed;
       inset: 0;
       z-index: 9999;
-      background: rgba(0,0,0,0.92);
+      background: rgba(0, 0, 0, 0.92);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -466,7 +467,7 @@
     }
 
     .lightbox-close:hover {
-      background: rgba(255,255,255,0.12);
+      background: rgba(255, 255, 255, 0.12);
     }
 
     .lightbox-img-container {
@@ -534,7 +535,7 @@
     <section class="hero">
       <div class="hero-layout">
         <div class="hero-sidebar">
-          <img src="profile_logo.jpeg" alt="Aditya Shrestha" class="avatar">
+          <img src="profile-logo.jpeg" alt="Aditya Shrestha" class="avatar">
           <ul class="contact-links">
             <li><a href="mailto:adityashrestha39@gmail.com" aria-label="Email Aditya Shrestha"><svg class="contact-icon"
                   viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"
@@ -635,7 +636,8 @@
             <div class="entry-highlight-text">
               <div class="entry-title">BankSentinel</div>
               <div class="entry-meta">
-                <span class="entry-header-row"><img src="GlobalIme.png" alt="Global IME Bank" class="entry-org-logo"> 1st Place &mdash; Global IME AI/ML Hackathon 2026</span>
+                <span class="entry-header-row"><img src="GlobalIme.png" alt="Global IME Bank" class="entry-org-logo">
+                  1st Place &mdash; Global IME AI/ML Hackathon 2026</span>
               </div>
               <div class="entry-desc">
                 A five-agent AI architecture for real-time intrusion detection and behavioral transaction inspection.
@@ -644,7 +646,8 @@
                 <a href="projects.html#banksentinel">[Overview]</a>
               </div>
             </div>
-            <img src="Hackathon_win.jpg" alt="Team Eigen Threat winning the Global IME AI/ML Hackathon 2026" class="hackathon-photo-thumb" onclick="openLightbox(this.src)">
+            <img src="Hackathon_win.jpg" alt="Team Eigen Threat winning the Global IME AI/ML Hackathon 2026"
+              class="hackathon-photo-thumb" onclick="openLightbox(this.src)">
           </div>
         </div>
       </div>
@@ -704,7 +707,7 @@
     }
 
     // Scroll zoom
-    overlay.addEventListener('wheel', function(e) {
+    overlay.addEventListener('wheel', function (e) {
       e.preventDefault();
       const delta = e.deltaY > 0 ? -0.15 : 0.15;
       lbScale = Math.max(0.5, Math.min(lbScale + delta, 8));
@@ -713,7 +716,7 @@
     }, { passive: false });
 
     // Mouse drag pan
-    lbContainer.addEventListener('mousedown', function(e) {
+    lbContainer.addEventListener('mousedown', function (e) {
       if (lbScale <= 1) return;
       isDragging = true;
       dragStartX = e.clientX - lbX;
@@ -721,14 +724,14 @@
       lbImg.style.transition = 'none';
     });
 
-    window.addEventListener('mousemove', function(e) {
+    window.addEventListener('mousemove', function (e) {
       if (!isDragging) return;
       lbX = e.clientX - dragStartX;
       lbY = e.clientY - dragStartY;
       applyTransform();
     });
 
-    window.addEventListener('mouseup', function() {
+    window.addEventListener('mouseup', function () {
       isDragging = false;
       lbImg.style.transition = 'transform 0.15s ease';
     });
@@ -739,7 +742,7 @@
     let touchStartX = 0;
     let touchStartY = 0;
 
-    lbContainer.addEventListener('touchstart', function(e) {
+    lbContainer.addEventListener('touchstart', function (e) {
       if (e.touches.length === 2) {
         e.preventDefault();
         touchStartDist = Math.hypot(
@@ -755,7 +758,7 @@
       }
     }, { passive: false });
 
-    lbContainer.addEventListener('touchmove', function(e) {
+    lbContainer.addEventListener('touchmove', function (e) {
       if (e.touches.length === 2) {
         e.preventDefault();
         const dist = Math.hypot(
@@ -773,20 +776,20 @@
       }
     }, { passive: false });
 
-    lbContainer.addEventListener('touchend', function() {
+    lbContainer.addEventListener('touchend', function () {
       isDragging = false;
       lbImg.style.transition = 'transform 0.15s ease';
     });
 
     // Double-click/tap to reset
-    lbImg.addEventListener('dblclick', function() {
+    lbImg.addEventListener('dblclick', function () {
       if (lbScale > 1) { lbScale = 1; lbX = 0; lbY = 0; }
       else { lbScale = 2.5; }
       applyTransform();
     });
 
     // ESC to close
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') closeLightbox();
     });
   </script>
